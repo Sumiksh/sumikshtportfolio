@@ -130,7 +130,7 @@ export default function Home() {
           }
         })
       },
-      { threshold: 0.3 },
+      { threshold: 0.4 },
     )
 
     if (statsRef.current) {
@@ -153,7 +153,7 @@ export default function Home() {
       contributions: 500,
     }
     const duration = 1000
-    const steps = 60
+    const steps = 20
     const increment = duration / steps
     let currentStep = 0
 
@@ -411,7 +411,7 @@ export default function Home() {
                 Technologies
               </span>
             </h2>
-            <p className="text-lg text-slate-700 dark:text-slate-300">
+            <p className="text-lg font-semibold text-slate-700 dark:text-slate-300">
               My technical proficiency across various domains
             </p>
           </div>
