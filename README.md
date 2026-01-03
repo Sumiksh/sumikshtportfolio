@@ -108,7 +108,7 @@ classDiagram
 
 ## 🚢 Deployment
 
-- Deploy to [Vercel](https://vercel.com/) or any platform supporting Next.js
+- Deploy to [Vercel](https://sumikshtportfolio.vercel.app/).
 
 ---
 
