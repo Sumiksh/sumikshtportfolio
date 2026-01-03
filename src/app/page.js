@@ -227,11 +227,10 @@ export default function Home() {
                   {msg.text.split("\n").map((line, lineIdx) => (
                     <div
                       key={lineIdx}
-                      className={`${
-                        msg.sender === "user"
-                          ? "bg-blue-100 dark:bg-blue-800 text-blue-900 dark:text-blue-100"
-                          : "bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-gray-100"
-                      } px-4 py-2 rounded mb-2`}
+                      className={`${msg.sender === "user"
+                        ? "bg-blue-100 dark:bg-blue-800 text-blue-900 dark:text-blue-100"
+                        : "bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-gray-100"
+                        } px-4 py-2 rounded mb-2`}
                     >
                       {line}
                     </div>
@@ -268,44 +267,50 @@ export default function Home() {
         )}
         <div className="flex w-full max-w-6xl mx-auto h-[70vh] items-center">
           {/* Left: Animated Profile Image */}
-          <div className="w-1/2 flex justify-center items-center">
-            <Image
-              src="/profile.jpg"
-              alt="Profile Art"
-              width={400}
-              height={400}
-              className={`rounded-xl object-cover shadow-lg transition-all duration-700 ease-out ${
-                imgVisible ? "opacity-100 scale-100" : "opacity-0 scale-75"
-              }`}
-              priority
-            />
+          <div className="w-full md:w-1/2 flex justify-center items-center order-1 md:order-1">
+            <div className="relative w-64 h-80 sm:w-80 sm:h-80 lg:w-[450px] lg:h-[450px]">
+              <Image
+                src="/profile.jpg"
+                alt="Profile Art"
+                fill
+                className={`rounded-2xl object-cover shadow-2xl transition-all duration-1000 ease-out ${imgVisible ? "opacity-100 scale-100 rotate-0" : "opacity-0 scale-75 -rotate-6"}`}
+                priority
+              />
+            </div>
           </div>
+
           {/* Right: Text */}
-          <div className="w-1/2 flex flex-col justify-center items-start px-8">
-            <h1 className="text-4xl md:text-4xl font-extrabold mb-6 leading-[1.1] tracking-tight text-gray-900 dark:text-white">
+          <div className="w-full md:w-1/2 flex flex-col justify-center items-center md:items-start text-center md:text-left order-2">
+            <h1 className="text-4xl sm:text-5xl lg:text-7xl font-extrabold mb-6 leading-[1.1] tracking-tight text-gray-900 dark:text-white">
               Turning{" "}
               <span className="relative inline-block group">
-                {/* The Pulsating Word */}
                 <span className="inline-block animate-pulse duration-[3000ms] text-transparent bg-clip-text bg-gradient-to-r from-purple-600 via-fuchsia-500 to-indigo-500 drop-shadow-[0_0_15px_rgba(168,85,247,0.2)]">
                   Vision
                 </span>
-                {/*An underline that glows with it */}
-                <span className="absolute -bottom-1 left-0 w-full h-1 bg-gradient-to-r from-purple-600 to-indigo-500 rounded-full opacity-50 animate-pulse duration-[3000ms]"></span>
+                <span className="absolute -bottom-1 left-0 w-full h-1 bg-gradient-to-r from-purple-600 to-indigo-500 rounded-full opacity-50"></span>
               </span>{" "}
-              Into
-              <br />
-              Reality With Code And Design.
+              Into <br className="hidden md:block" />
+              Reality With Code.
             </h1>
             <p
-              className="mb-8 text-lg font-medium leading-relaxed
+              className="
+              /* Layout & Spacing: Starts small, grows with screen size */
+              mb-4 sm:mb-6 md:mb-8 
+              text-base sm:text-lg lg:text-xl 
+              font-medium leading-relaxed text-center md:text-left
+              
               /* Light Mode: Deep Indigo/Gray with white glow */
               text-slate-800 drop-shadow-[0_2px_2px_rgba(255,255,255,0.8)]
+              
               /* Dark Mode: Pure White with black glow */
-              dark:text-white dark:drop-shadow-[0_2px_10px_rgba(0,0,0,1)]"
+              dark:text-white dark:drop-shadow-[0_2px_10px_rgba(0,0,0,1)]
+            "
             >
               As a skilled full-stack developer, I am dedicated to turning ideas into innovative web applications.
-              <br />
-              Explore my latest projects and articles, showcasing my expertise in React.js and web development.
+              <br className="hidden md:inline" />
+              <span className="block md:inline">
+                Explore my latest projects and articles, showcasing my expertise in React.js and web development.
+              </span>
             </p>
             <div className="flex gap-4">
               <a
@@ -313,10 +318,10 @@ export default function Home() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="px-8 py-3 rounded-full font-bold transition-all duration-300 transform hover:scale-105 active:scale-95 shadow-md flex items-center gap-2 group bg-transparent 
-        /* Light Mode Styles */
-        text-purple-900 border-2 border-purple-700/50 hover:border-purple-700 hover:bg-purple-50 
-        /* Dark Mode Styles */
-        dark:text-white dark:border-purple-500/50 dark:hover:border-purple-400 dark:hover:bg-purple-500/10 dark:shadow-[0_0_15px_rgba(168,85,247,0.1)]"
+              /* Light Mode Styles */
+              text-purple-900 border-2 border-purple-700/50 hover:border-purple-700 hover:bg-purple-50 
+              /* Dark Mode Styles */
+              dark:text-white dark:border-purple-500/50 dark:hover:border-purple-400 dark:hover:bg-purple-500/10 dark:shadow-[0_0_15px_rgba(168,85,247,0.1)]"
               >
                 <FontAwesomeIcon
                   icon={faFileArrowDown}
@@ -348,9 +353,8 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {/* Projects Completed */}
             <div
-              className={`group relative bg-gradient-to-br from-purple-50 to-indigo-50 dark:from-purple-900/20 dark:to-indigo-900/20 border border-purple-200 dark:border-purple-800 rounded-xl p-8 transition-all duration-700 hover:scale-105 hover:shadow-2xl hover:shadow-purple-500/20 ${
-                statsVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-              }`}
+              className={`group relative bg-gradient-to-br from-purple-50 to-indigo-50 dark:from-purple-900/20 dark:to-indigo-900/20 border border-purple-200 dark:border-purple-800 rounded-xl p-8 transition-all duration-700 hover:scale-105 hover:shadow-2xl hover:shadow-purple-500/20 ${statsVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+                }`}
             >
               <div className="text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-indigo-500 mb-2">
                 {counters.projects}+
@@ -361,9 +365,8 @@ export default function Home() {
 
             {/* Years of Experience */}
             <div
-              className={`group relative bg-gradient-to-br from-blue-50 to-cyan-50 dark:from-blue-900/20 dark:to-cyan-900/20 border border-blue-200 dark:border-blue-800 rounded-xl p-8 transition-all duration-700 hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/20 ${
-                statsVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-              }`}
+              className={`group relative bg-gradient-to-br from-blue-50 to-cyan-50 dark:from-blue-900/20 dark:to-cyan-900/20 border border-blue-200 dark:border-blue-800 rounded-xl p-8 transition-all duration-700 hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/20 ${statsVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+                }`}
               style={{ transitionDelay: "100ms" }}
             >
               <div className="text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500 mb-2">
@@ -375,9 +378,8 @@ export default function Home() {
 
             {/* Happy Clients */}
             <div
-              className={`group relative bg-gradient-to-br from-pink-50 to-rose-50 dark:from-pink-900/20 dark:to-rose-900/20 border border-pink-200 dark:border-pink-800 rounded-xl p-8 transition-all duration-700 hover:scale-105 hover:shadow-2xl hover:shadow-pink-500/20 ${
-                statsVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-              }`}
+              className={`group relative bg-gradient-to-br from-pink-50 to-rose-50 dark:from-pink-900/20 dark:to-rose-900/20 border border-pink-200 dark:border-pink-800 rounded-xl p-8 transition-all duration-700 hover:scale-105 hover:shadow-2xl hover:shadow-pink-500/20 ${statsVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+                }`}
               style={{ transitionDelay: "200ms" }}
             >
               <div className="text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-pink-600 to-rose-500 mb-2">
@@ -389,9 +391,8 @@ export default function Home() {
 
             {/* GitHub Contributions */}
             <div
-              className={`group relative bg-gradient-to-br from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20 border border-green-200 dark:border-green-800 rounded-xl p-8 transition-all duration-700 hover:scale-105 hover:shadow-2xl hover:shadow-green-500/20 ${
-                statsVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-              }`}
+              className={`group relative bg-gradient-to-br from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20 border border-green-200 dark:border-green-800 rounded-xl p-8 transition-all duration-700 hover:scale-105 hover:shadow-2xl hover:shadow-green-500/20 ${statsVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+                }`}
               style={{ transitionDelay: "300ms" }}
             >
               <div className="text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-green-600 to-emerald-500 mb-2">
@@ -420,9 +421,8 @@ export default function Home() {
             {skills.map((skill, index) => (
               <div
                 key={skill.name}
-                className={`group relative bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-lg p-6 transition-all duration-500 hover:scale-105 hover:shadow-xl hover:border-purple-500 dark:hover:border-purple-400 ${
-                  skillsVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-                }`}
+                className={`group relative bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-lg p-6 transition-all duration-500 hover:scale-105 hover:shadow-xl hover:border-purple-500 dark:hover:border-purple-400 ${skillsVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+                  }`}
                 style={{ transitionDelay: `${index * 50}ms` }}
               >
                 {/* Category Badge */}
