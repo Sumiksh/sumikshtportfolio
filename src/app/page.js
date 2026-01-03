@@ -213,9 +213,11 @@ export default function Home() {
 
   return (
     <div ref={vantaRef} className="min-h-screen bg-white text-black dark:bg-black dark:text-white">
-      <main className="relative z-10 w-full">
+      <main className="relative z-10 w-full overflow-x-hidden">
         <Navbar />
-        <div className="h-20" />
+
+        <div className="h-16 md:h-24" />
+
         {/* Chatbot UI */}
         {chatOpen && (
           <div className="fixed bottom-20 right-6 z-[9999] w-80 bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-700 rounded-lg shadow-lg flex flex-col">
@@ -265,15 +267,16 @@ export default function Home() {
             </div>
           </div>
         )}
-        <div className="flex w-full max-w-6xl mx-auto h-[70vh] items-center">
-          {/* Left: Animated Profile Image */}
+
+        <section className="flex flex-col md:flex-row w-full max-w-7xl mx-auto min-h-[80vh] items-center px-6 md:px-12 py-10 gap-12">
+          {/* Left: Profile Image */}
           <div className="w-full md:w-1/2 flex justify-center items-center order-1 md:order-1">
-            <div className="relative w-64 h-80 sm:w-80 sm:h-80 lg:w-[450px] lg:h-[450px]">
+            <div className="relative w-64 h-75 sm:w-80 sm:h-80 lg:w-[450px] lg:h-[450px]">
               <Image
                 src="/profile.jpg"
                 alt="Profile Art"
                 fill
-                className={`rounded-2xl object-cover shadow-2xl transition-all duration-1000 ease-out ${imgVisible ? "opacity-100 scale-100 rotate-0" : "opacity-0 scale-75 -rotate-6"}`}
+                className={`rounded-xl object-cover shadow-2xl transition-all duration-1000 ease-out ${imgVisible ? "opacity-100 scale-100 rotate-0" : "opacity-0 scale-75 -rotate-6"}`}
                 priority
               />
             </div>
@@ -292,62 +295,21 @@ export default function Home() {
               Into <br className="hidden md:block" />
               Reality With Code.
             </h1>
-            <p
-              className="
-              /* Layout & Spacing: Starts small, grows with screen size */
-              mb-4 sm:mb-6 md:mb-8 
-              text-base sm:text-lg lg:text-xl 
-              font-medium leading-relaxed text-center md:text-left
-              
-              /* Light Mode: Deep Indigo/Gray with white glow */
-              text-slate-800 drop-shadow-[0_2px_2px_rgba(255,255,255,0.8)]
-              
-              /* Dark Mode: Pure White with black glow */
-              dark:text-white dark:drop-shadow-[0_2px_10px_rgba(0,0,0,1)]
-            "
-            >
-              As a skilled full-stack developer, I am dedicated to turning ideas into innovative web applications.
-              <br className="hidden md:inline" />
-              <span className="block md:inline">
-                Explore my latest projects and articles, showcasing my expertise in React.js and web development.
-              </span>
+            
+            <p className="mb-8 text-base sm:text-lg lg:text-xl font-medium leading-relaxed text-slate-700 dark:text-slate-300 max-w-xl">
+              As a skilled full-stack developer, I am dedicated to turning ideas into innovative web applications. Explore my latest projects showcasing expertise in React.js.
             </p>
-            <div className="flex gap-4">
-              <a
-                href="/resume.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="px-8 py-3 rounded-full font-bold transition-all duration-300 transform hover:scale-105 active:scale-95 shadow-md flex items-center gap-2 group bg-transparent 
-              /* Light Mode Styles */
-              text-purple-900 border-2 border-purple-700/50 hover:border-purple-700 hover:bg-purple-50 
-              /* Dark Mode Styles */
-              dark:text-white dark:border-purple-500/50 dark:hover:border-purple-400 dark:hover:bg-purple-500/10 dark:shadow-[0_0_15px_rgba(168,85,247,0.1)]"
-              >
-                <FontAwesomeIcon
-                  icon={faFileArrowDown}
-                  className="text-sm transition-transform group-hover:-translate-y-1"
-                />
-                <span className="tracking-wide">Resume</span>
-                <span className="text-lg transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1">
-                  ↗
-                </span>
+
+            <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
+              <a href="/resume.pdf" target="_blank" className="px-8 py-4 rounded-full font-bold transition-all bg-transparent border-2 border-purple-700/50 hover:bg-purple-50 dark:text-white dark:hover:bg-purple-500/10 flex justify-center items-center gap-2">
+                <FontAwesomeIcon icon={faFileArrowDown} /> Resume 
               </a>
-              <button
-                onClick={handleContactClick}
-                className="px-8 py-3 rounded-full font-bold transition-all duration-300 transform hover:scale-105 active:scale-95 shadow-lg text-white
-                /* Light Mode Gradient & Shadow */
-                bg-gradient-to-r from-purple-700 to-indigo-600 shadow-purple-900/20 hover:shadow-purple-900/40
-                /* Dark Mode Gradient & Shadow */
-                dark:from-purple-600 dark:to-fuchsia-500 dark:shadow-purple-500/20 dark:hover:shadow-purple-500/40 dark:border dark:border-purple-400/30"
-              >
-                <span className="flex items-center gap-2">
-                  {!showEmail && <FontAwesomeIcon icon={faEnvelope} className="text-sm" />}
-                  {showEmail ? email : "Get In Touch"}
-                </span>
+              <button onClick={handleContactClick} className="px-8 py-4 rounded-full font-bold text-white bg-gradient-to-r from-purple-700 to-indigo-600 shadow-lg hover:scale-105 active:scale-95 transition-transform truncate min-w-[200px]">
+                {showEmail ? email : "Get In Touch"}
               </button>
             </div>
           </div>
-        </div>
+        </section>
 
         <div ref={statsRef} className="w-full max-w-6xl mx-auto py-20 px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
