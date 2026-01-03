@@ -271,7 +271,7 @@ export default function Home() {
         <section className="flex flex-col md:flex-row w-full max-w-7xl mx-auto min-h-[80vh] items-center px-6 md:px-12 py-10 gap-12">
           {/* Left: Profile Image */}
           <div className="w-full md:w-1/2 flex justify-center items-center order-1 md:order-1">
-            <div className="relative w-64 h-75 sm:w-80 sm:h-80 lg:w-[450px] lg:h-[450px]">
+            <div className="relative w-64 h-75 sm:w-80 sm:h-95 lg:w-[450px] lg:h-[550px]">
               <Image
                 src="/profile.jpg"
                 alt="Profile Art"
