@@ -9,6 +9,7 @@ import {
   faChartLine,
   faFilePdf,
   faArrowUpRightFromSquare,
+  faCapsules
 } from "@fortawesome/free-solid-svg-icons"
 import { Navbar } from "@/components/ui/navbar"
 
@@ -16,14 +17,14 @@ export default function AboutPage() {
   const projects = [
     {
       id: 1,
-      category: "Web Development",
-      title: "Legacy Portfolio V1",
+      category: "Full Stack",
+      title: "Pill Scheduler",
       description:
-        "A foundational project showcasing my early mastery of responsive design and UI layout. This version represents my transition into full-stack development and serves as the architectural predecessor to my current site.",
-      icon: faCode,
-      tags: ["React", "Next.js", "Tailwind"],
-      link: "https://portfolio-five-gamma-25.vercel.app/",
-      github: "https://github.com/Sumiksh/portfolio.git",
+        "PillScheduler is an intelligent, high-performance medication management dashboard that bridges the gap between technical clinical data and patient-friendly care. It integrates official OAuth, NIH RxNav, openFDA, and Google Gemini AI to provide a seamless experience for medication management.",
+      icon: faCapsules,
+      tags: ["Next.js", "Firebase", "Tailwind CSS", "Lucide React", "Google Gemini API", "NextAuth.js"],
+      github: "https://github.com/Sumiksh/PillReminders",
+      link: "https://www.youtube.com/watch?v=aWqIIGnwpis",
       gradient: "from-blue-500/10 to-cyan-500/10",
       borderColor: "border-blue-500/20",
       iconColor: "text-blue-500",
@@ -95,6 +96,20 @@ export default function AboutPage() {
       borderColor: "border-rose-500/20",
       iconColor: "text-rose-500",
     },
+    {
+      id: 7,
+      category: "Web Development",
+      title: "Legacy Portfolio V1",
+      description:
+        "A foundational project showcasing my early mastery of responsive design and UI layout. This version represents my transition into full-stack development and serves as the architectural predecessor to my current site.",
+      icon: faCode,
+      tags: ["React", "Next.js", "Tailwind"],
+      link: "https://portfolio-five-gamma-25.vercel.app/",
+      github: "https://github.com/Sumiksh/portfolio.git",
+      gradient: "from-blue-500/10 to-cyan-500/10",
+      borderColor: "border-blue-500/20",
+      iconColor: "text-blue-500",
+    }
   ]
 
   return (
