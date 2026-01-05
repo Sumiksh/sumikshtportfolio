@@ -59,7 +59,7 @@ export function Navbar({ className }) {
             </div>
             <span className={`font-bold text-lg md:text-xl tracking-tight
               ${isDark ? "text-white" : "text-zinc-900"}`}>
-              Sumiksh
+              Sumiksh Portfolio
             </span>
           </Link>
 
@@ -78,6 +78,7 @@ export function Navbar({ className }) {
                             ? "bg-purple-500/10 text-purple-500" 
                             : (isDark ? "text-zinc-400 hover:text-white" : "text-zinc-600 hover:text-purple-600")}`}
                       >
+                        <FontAwesomeIcon icon={link.icon} className="text-xl" />
                         {link.name}
                       </Link>
                     </NavigationMenuItem>
