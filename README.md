@@ -1,4 +1,4 @@
-# 🚀 Sumiksh Portfolio2x
+# 🚀 Sumiksh Portfolio
 
 A modern, theme-aware portfolio built with **Next.js**, **Tailwind CSS**, and **shadcn/ui**.
 
